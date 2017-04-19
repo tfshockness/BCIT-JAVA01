@@ -1,3 +1,7 @@
-#COMP 1409
-##Into to Software Developement 1 - Java
-###Lab 1
+<div>
+  <h1>COMP1409</h1>
+  <p>
+    Intro to Software Developement 1 - Java<br>
+    Lab 1
+  </p>
+</div>
