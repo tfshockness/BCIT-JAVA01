@@ -18,4 +18,5 @@
       <li>Test and debug simple programs.</li>
     </ul>
   </div>
+  <span><strog>For More:</strong></span><a href="http://www.bcit.ca/study/outlines/20172062079">BCIT - Course Outline</a>
 </section>
