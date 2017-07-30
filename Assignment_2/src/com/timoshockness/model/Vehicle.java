@@ -3,9 +3,12 @@ package com.timoshockness.model;
 import java.text.DecimalFormat;
 
 /**
+ * Class is responsible for Create a Vehicle AND calculate cost of selling.
+ * To fix (coupling) I need to create another class Selling, but if I do i will be going out from specification.
+ * This class violates the Single Responsibility principle
  * 
  * @author Timoteo Shockness
- * @version 1.0
+ * @version 2.0.0
  *
  */
 public class Vehicle {
@@ -181,7 +184,7 @@ public class Vehicle {
             System.out.println("The dealer cost is: $" + this.dealerCost + ". Sale price $" + sellingPrice + " is not high enough");
         }
     }
-    
+	
 	/**
 	 * Method to print the selling details
 	 */
