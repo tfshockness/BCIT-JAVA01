@@ -27,10 +27,10 @@ public class app {
 		car.setDealerCost(2500);
 		car.calculateProfitMargin();
 		
-		VehiclePurchase vp = new VehiclePurchase(true);
-		vp.calculatePurchasePrice(19000, car);
+		VehiclePurchase vp = new VehiclePurchase(true, customer, date, car);
+		vp.calculatePurchasePrice(19000);
 		
-		vp.displayDetails(customer, date, car);
+		vp.displayDetails();
 
 	}
 

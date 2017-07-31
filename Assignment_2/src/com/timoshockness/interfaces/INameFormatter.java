@@ -1,6 +1,6 @@
 package com.timoshockness.interfaces;
 
-public interface NameFormatterInterface {
+public interface INameFormatter {
 	 String fullName();
 
 }

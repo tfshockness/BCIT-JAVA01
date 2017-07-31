@@ -3,10 +3,9 @@
  */
 package com.timoshockness.model;
 
-import com.timoshockness.interfaces.DataFormatterInterface;
-import com.timoshockness.interfaces.NameFormatterInterface;
-import com.timoshockness.interfaces.PrintInterface;
-import com.timoshockness.interfaces.PurchaseCalculatorInterface;
+
+import com.timoshockness.interfaces.IPrintDetails;
+import com.timoshockness.interfaces.IPurchaseCalculator;
 
 /**
  * This class is responsible to purchase a Vehicle
@@ -14,16 +13,22 @@ import com.timoshockness.interfaces.PurchaseCalculatorInterface;
  * @version 2.0.0
  *
  */
-public class VehiclePurchase implements PurchaseCalculatorInterface, PrintInterface {
+public class VehiclePurchase implements IPurchaseCalculator, IPrintDetails{
 
 	private boolean servicePackage;
+	private PurchaseDate purchaseDate;
+	private Customer renter;
+	private Vehicle vehiclePurchased;
 	private static final double SERVICE_FEE = 500.00;
 	
 	/**
 	 * Overload constructor
 	 * @param boolean servicePackage
 	 */
-	public VehiclePurchase(boolean servicePackage){
+	public VehiclePurchase(boolean servicePackage, Customer renter, PurchaseDate purchaseDate, Vehicle vehiclePurchased){
+		this.renter = renter;
+		this.purchaseDate = purchaseDate;
+		this.vehiclePurchased = vehiclePurchased;
 		setServicePackage(servicePackage);
 	}
 
@@ -50,12 +55,12 @@ public class VehiclePurchase implements PurchaseCalculatorInterface, PrintInterf
 	 * @param Vehicle vechiclePurchase - injecting Vehicle dependency
 	 */
 	@Override
-	public void calculatePurchasePrice(double purchasePrice, Vehicle vehiclePurchased) {
+	public void calculatePurchasePrice(double purchasePrice) {
 		
-		vehiclePurchased.checkStandardSellingPrice(purchasePrice);
+		this.vehiclePurchased.checkStandardSellingPrice(purchasePrice);
 		
 		if(this.servicePackage){
-			vehiclePurchased.setSellingPrice(vehiclePurchased.getSellingPrice() + SERVICE_FEE);
+			this.vehiclePurchased.setSellingPrice(this.vehiclePurchased.getSellingPrice() + SERVICE_FEE);
 		}
 		
 	}
@@ -67,11 +72,11 @@ public class VehiclePurchase implements PurchaseCalculatorInterface, PrintInterf
 	 * @param Vehicle vehicle - injecting Vehicle dependency
 	 */
 	@Override
-	public void displayDetails(NameFormatterInterface name, DataFormatterInterface date, Vehicle vehicle) {
-		System.out.println("Customer: " + name.fullName());
-        System.out.println("Purchase Date:" + date.fullDate());
+	public void displayDetails() {
+		System.out.println("Customer: " + renter.fullName());
+        System.out.println("Purchase Date:" + purchaseDate.fullDate());
   
-        vehicle.printDetails();
+        this.vehiclePurchased.displayDetails();
         if(this.servicePackage == true)
         {
             System.out.println("SERVICE PACKAGE INCLUDED");

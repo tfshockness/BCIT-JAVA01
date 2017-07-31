@@ -3,14 +3,14 @@
  */
 package com.timoshockness.model;
 
-import com.timoshockness.interfaces.DataFormatterInterface;
+import com.timoshockness.interfaces.IDataFormatter;
 
 /**
  * @author Timoteo Shockness
  * @version 2.0.0
  *
  */
-public class PurchaseDate implements DataFormatterInterface {
+public class PurchaseDate implements IDataFormatter {
 
 	//Constants
 	private static final int CURRENT_YEAR = 2017;

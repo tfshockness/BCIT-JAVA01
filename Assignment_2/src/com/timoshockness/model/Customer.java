@@ -3,7 +3,7 @@
  */
 package com.timoshockness.model;
 
-import com.timoshockness.interfaces.NameFormatterInterface;
+import com.timoshockness.interfaces.INameFormatter;
 
 /**
  * Class responsible for create a customer
@@ -11,7 +11,7 @@ import com.timoshockness.interfaces.NameFormatterInterface;
  * @version 2.0.0
  *
  */
-public class Customer implements NameFormatterInterface {
+public class Customer implements INameFormatter {
 
 	private String firstName;
 	private String lastName;

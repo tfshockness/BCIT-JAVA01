@@ -2,6 +2,8 @@ package com.timoshockness.model;
 
 import java.text.DecimalFormat;
 
+import com.timoshockness.interfaces.IPrintDetails;
+
 /**
  * Class is responsible for Create a Vehicle AND calculate cost of selling.
  * To fix (coupling) I need to create another class Selling, but if I do i will be going out from specification.
@@ -11,7 +13,7 @@ import java.text.DecimalFormat;
  * @version 2.0.0
  *
  */
-public class Vehicle {
+public class Vehicle implements IPrintDetails {
 	private String stockCode;
 	private String make;
 	private String model;
@@ -188,7 +190,8 @@ public class Vehicle {
 	/**
 	 * Method to print the selling details
 	 */
-	public void printDetails(){
+	@Override
+	public void displayDetails() {
         System.out.println("Jalopies Are Us Vehicle Summary: ");
         System.out.println("Vehicle: " + this.year +" "+ this.make + " " + this.model);
         System.out.println("Stock Code: " + this.stockCode);
@@ -196,5 +199,6 @@ public class Vehicle {
         System.out.printf("Selling Price: $%.2f%n ",this.sellingPrice);
         System.out.printf("Profit Margin: %.2f%%%n", this.profitMargin );
         System.out.println("Dollar Profit: " + new DecimalFormat("$##.##").format(calculateProfit()));
+		
 	}
 }

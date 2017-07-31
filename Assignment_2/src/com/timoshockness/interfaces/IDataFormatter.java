@@ -1,5 +1,5 @@
 package com.timoshockness.interfaces;
 
-public interface DataFormatterInterface {
+public interface IDataFormatter {
 	String fullDate();
 }
