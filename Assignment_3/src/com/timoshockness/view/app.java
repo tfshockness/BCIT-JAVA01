@@ -3,7 +3,6 @@
  */
 package com.timoshockness.view;
 
-import com.timoshockness.interfaces.IPrintDetails;
 import com.timoshockness.model.Customer;
 import com.timoshockness.model.PurchaseDate;
 import com.timoshockness.model.Vehicle;
